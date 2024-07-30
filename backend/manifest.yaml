@@ -34,8 +34,8 @@ spec:
     spec:
       initContainers:
       - name: init-myservice
-        image: busybox:1.28
-        command: ['sh', '-c', "until nslookup db-dev.daws78s.online; do echo waiting for myservice; sleep 2; done"]
+        image: busybox:1.28  # its a small image
+        command: ['sh', '-c', "until nslookup db-dev.devopsme.online; do echo waiting for myservice; sleep 2; done"]
       containers:
       - name: backend
         image: nikhilmindfreak/backend:v1.0
@@ -63,8 +63,6 @@ spec:
         envFrom:
         - configMapRef:
             name: backend
-
-
 ---
 apiVersion: v1
 kind: Service
