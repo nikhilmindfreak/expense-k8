@@ -26,12 +26,12 @@ spec:
       containers:
       - name: mysql
         image: nikhilmindfreak/mysql:v1.0
-        readinessProbe:
+        readinessProbe:  # to check if the  mysql is running 
           tcpSocket:
             port: 3306
-          initialDelaySeconds: 10
+          initialDelaySeconds: 10  # we give time for deplay 
           periodSeconds: 5
-        livenessProbe:
+        livenessProbe:  # to do health checks we use it 
           tcpSocket:
             port: 3306
           initialDelaySeconds: 10
