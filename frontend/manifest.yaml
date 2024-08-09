@@ -159,7 +159,7 @@ spec:
   - protocol: TCP
     port: 80 #service-port
     targetPort: 8080 #target-port
----
+---  # we use target group binding / we can use ingress also
 apiVersion: elbv2.k8s.aws/v1beta1
 kind: TargetGroupBinding
 metadata:
@@ -168,5 +168,5 @@ metadata:
 spec:
   serviceRef:
     name: frontend # route traffic to the awesome-service
-    port: 80
-  targetGroupARN: arn:aws:elasticloadbalancing:us-east-1:315069654700:targetgroup/expense-dev-frontend/709ac65514f95b53
+    port: 80             # admin will give target group arn 
+  targetGroupARN: #arn:aws:elasticloadbalancing:us-east-1:315069654700:targetgroup/expense-dev-frontend/709ac65514f95b53
